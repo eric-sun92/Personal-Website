@@ -8,6 +8,7 @@ import { getUser } from "./data";
 const navigation = [
 	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
+	{ name: "Project_Areas", href: "/project_areas" },
 ];
 
 export default function Home({

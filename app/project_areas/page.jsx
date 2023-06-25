@@ -54,9 +54,7 @@ export default async function ProjectsPage({
                 new Date(a.updated_at ?? Number.POSITIVE_INFINITY).getTime(),
         );
     
-    const ml_list = ["foodnotfood", "foodnotfood_test_training"]
-    const machineLearning = sorted.filter((p) => ml_list.includes(p.name))
-    console.log(machineLearning)
+    const project_categories = ["Machine Learning", "Data Structures", "Games", "APIs", "Websites"]
     
     const chunkSize = Math.ceil(sorted.length / 3);
     return (
@@ -73,60 +71,12 @@ export default async function ProjectsPage({
                     </p>
                 </div>
 
-                {/* {
-                    heroes.length ? <>
-                        <div className="w-full h-px bg-zinc-800" />
-                        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
-
-                            {
-                                (heroes[0] || heroes[2]) ?
-                                    <div className="grid grid-cols-1 gap-4">
-                                        {[heroes[0], heroes[2]].map((project) => (
-                                            !project ? null :
-                                                <Card key={project.name}>
-                                                    <Article project={project} />
-                                                </Card>
-                                        ))}
-                                    </div> : null
-                            }
-                            {
-                                (heroes[1] || heroes[3]) ?
-                                <div className="grid grid-cols-1 gap-4">
-                                    {[heroes[1], heroes[3]].map((project) => (
-                                        !project ? null :
-                                            <Card key={project.name}>
-                                                <Article project={project} />
-                                            </Card>
-                                    ))}
-                                </div> : null
-                            }
-                        </div>
-                        <div className="hidden w-full h-px md:block bg-zinc-800" />
-                    </> : null
-                } */}
-
                 <div className="grid grid-cols-2 gap-4 mx-auto lg:mx-0">
-                    {/* <div className="grid grid-cols-3 gap-4"> */}
-                        {machineLearning.map((project) => (
+                        {project_categories.map((project) => (
                                 <Card key={project.name}>
                                     <Article project={project} />
                                 </Card>
                             ))}
-                    {/* </div> */}
-                    {/* <div className="grid grid-cols-1 gap-4">
-                        {chunk(sorted, chunkSize)[1]?.map((project) => (
-                                <Card key={project.name}>
-                                    <Article project={project} />
-                                </Card>
-                            ))}
-                    </div>
-                    <div className="grid grid-cols-1 gap-4">
-                        {chunk(sorted, chunkSize)[2]?.map((project) => (
-                                <Card key={project.name}>
-                                    <Article project={project} />
-                                </Card>
-                            ))}
-                    </div> */}
                 </div>
             </div>
         </div>
