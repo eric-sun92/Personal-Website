@@ -31,29 +31,37 @@ export default async function Contacts({
 		handle: username,
 	});
 
-	githubSocials.forEach((s) => {
-		switch (s.provider) {
-			case "linkedin":
-				contancts.push({
-					icon: <Linkedin size={20} />,
-					href: s.url,
-					label: s.provider,
-					// Extract last aprt of the url.
-					handle: s.url.split("/").pop(),
-				});
-				break;
-			default:
-				contancts.push({
-					icon: <User size={20} />,
-					href: s.url,
-					// Extract domain from url.
-					label: s.url.split("/")[2],
-					// Extract last part of the url. Might not make sense in some cases.
-					// handle: s.url.split("/").pop(),
-				});
-				break;
-		}
-	});
+	contancts.push({
+						icon: <Linkedin size={20} />,
+						href: "https://www.linkedin.com/in/eric-sun92/",
+						label: "linkedin",
+						// Extract last aprt of the url.
+						handle: "eric-sun92",
+					});
+
+	// githubSocials.forEach((s) => {
+	// 	switch (s.provider) {
+	// 		case "linkedin":
+	// 			contancts.push({
+	// 				icon: <Linkedin size={20} />,
+	// 				href: s.url,
+	// 				label: s.provider,
+	// 				// Extract last aprt of the url.
+	// 				handle: s.url.split("/").pop(),
+	// 			});
+	// 			break;
+	// 		default:
+	// 			contancts.push({
+	// 				icon: <User size={20} />,
+	// 				href: s.url,
+	// 				// Extract domain from url.
+	// 				label: s.url.split("/")[2],
+	// 				// Extract last part of the url. Might not make sense in some cases.
+	// 				// handle: s.url.split("/").pop(),
+	// 			});
+	// 			break;
+	// 	}
+	// });
 
 	return (
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">

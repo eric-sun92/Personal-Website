@@ -58,3 +58,8 @@ in your ENVs to prevent `npm build` from reverting `data.json` back to Octocat's
 - [ ] `README.md`: link at the top
 - [ ] `app/layout.jsx`: metadata - title, description, favicon. Handled by `setup.mjs`.
 - [ ] `public/favicon.ico`. Handled by `setup.mjs`.
+
+
+My own notes:
+1. change pfp
+2. 
