@@ -1,9 +1,9 @@
 {
-	"description": "My hobby projects, most of them are Nextjs apps deployed to Vercel.",
-	"githubUsername": "octocat",
+	"description": "I am a third year computer science student at Yale Univeristy",
+	"githubUsername": "eric-sun92",
 	"avatarUrl": "",
-	"displayName": "",
-	"email": "",
+	"displayName": "Eric Sun",
+	"email": "eric.sun.ecs92@yale.edu",
 	"projects": {
 		"blacklist": [],
 		"heroNames": []
