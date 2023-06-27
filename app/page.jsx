@@ -5,49 +5,51 @@ import data from "../data.json";
 import { ProfileOrganizations } from "./components/orgs";
 import { getUser } from "./data";
 
-import "../global.css";
-import { Inter } from "next/font/google";
-import LocalFont from "next/font/local";
-import data from "../data.json";
-import { Analytics } from '@vercel/analytics/react';
+// import {RootLayout} from "./layout"
+
+// import "../global.css";
+// import { Inter } from "next/font/google";
+// import LocalFont from "next/font/local";
+// import data from "../data.json";
+// import { Analytics } from '@vercel/analytics/react';
 
 
-/** @type {import('next').Metadata} */
-export const metadata = {
-	title: {
-		default: "Eric Sun",
-		template: "Eric Sun",
-	},
-	description: "Eric Sun's Personal Website",
-	robots: {
-		index: true,
-		follow: true,
-		googleBot: {
-			index: true,
-			follow: true,
-			"max-video-preview": -1,
-			"max-image-preview": "large",
-			"max-snippet": -1,
-		},
-	},
-	icons: [
-		{
-			url: "/favicon.ico",
-			rel: "icon",
-			sizes: "any",
-			type: "image/svg+xml",
-		},
-	]
-};
-const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
+// /** @type {import('next').Metadata} */
+// export const metadata = {
+// 	title: {
+// 		default: "Eric Sun",
+// 		template: "Eric Sun",
+// 	},
+// 	description: "Eric Sun's Personal Website",
+// 	robots: {
+// 		index: true,
+// 		follow: true,
+// 		googleBot: {
+// 			index: true,
+// 			follow: true,
+// 			"max-video-preview": -1,
+// 			"max-image-preview": "large",
+// 			"max-snippet": -1,
+// 		},
+// 	},
+// 	icons: [
+// 		{
+// 			url: "/favicon.ico",
+// 			rel: "icon",
+// 			sizes: "any",
+// 			type: "image/svg+xml",
+// 		},
+// 	]
+// };
+// const inter = Inter({
+// 	subsets: ["latin"],
+// 	variable: "--font-inter",
+// });
 
-const calSans = LocalFont({
-	src: "../public/fonts/CalSans-SemiBold.ttf",
-	variable: "--font-calsans",
-});
+// const calSans = LocalFont({
+// 	src: "../public/fonts/CalSans-SemiBold.ttf",
+// 	variable: "--font-calsans",
+// });
 
 
 const navigation = [
@@ -64,12 +66,12 @@ export default function Home({
 }) {
 
 	return (
-		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-			<body
-				className={`bg-black ${
-					process.env.NODE_ENV === "development" ? "debug-screens" : ''
-				}`}>
-			<Analytics />
+		// <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+		// 	<body
+		// 		className={`bg-black ${
+		// 			process.env.NODE_ENV === "development" ? "debug-screens" : ''
+		// 		}`}>
+		// 	<Analytics />
 			<div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
 				<nav className="my-10 animate-fade-in">
 					<ul className="flex items-center justify-center gap-4">
@@ -77,7 +79,7 @@ export default function Home({
 							<Link
 								key={item.href}
 								href={item.href + (customUsername ? `?customUsername=${customUsername}` : '')}
-								className="mx-2 text-xl duration-500 text-zinc-500 hover:text-zinc-300"
+								className="mx-2 text-xl duration-500 text-zinc-700 hover:text-zinc-300"
 							>
 								{item.name}
 							</Link>
@@ -94,14 +96,14 @@ export default function Home({
 
 				<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 				<div className="my-16 text-center animate-fade-in">
-					<h2 className="text-lg text-zinc-500">
+					<h2 className="text-lg text-zinc-700">
 						<UserText promise={promise} />
 						<ProfileOrganizations username={username} />
 					</h2>
 				</div>
 			</div>
-		</body>
-		</html>
+		// </body>
+		// </html>
 	);
 }
 
