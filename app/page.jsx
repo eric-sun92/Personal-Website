@@ -54,8 +54,8 @@ import { getUser } from "./data";
 
 const navigation = [
 	{ name: "Projects", href: "/project_areas" },
-	{ name: "Contact", href: "/contact" },
-	{ name: "Blog", href: "/blog"}
+	{ name: "Contact", href: "/contact" }
+	// { name: "Blog", href: "/blog"}
 ];
 
 const username =  process.env.GITHUB_USERNAME || data.githubUsername;
