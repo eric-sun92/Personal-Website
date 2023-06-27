@@ -4,6 +4,19 @@ import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import data from "../../data.json";
 import { getUser, getSocialAccounts } from "../data";
+import "../../global.css";
+import { Inter } from "next/font/google";
+import LocalFont from "next/font/local";
+
+const inter = Inter({
+ subsets: ["latin"],
+ variable: "--font-inter",
+});
+
+const calSans = LocalFont({
+ src: "../../public/fonts/CalSans-SemiBold.ttf",
+ variable: "--font-calsans",
+});
 
 export default async function Contacts({
 	searchParams: { customUsername },
@@ -64,6 +77,12 @@ export default async function Contacts({
 	// });
 
 	return (
+		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+         <body
+             className={`bg-black ${
+                 process.env.NODE_ENV === "development" ? "debug-screens" : ''
+             }`}
+         >
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<Navigation />
 			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
@@ -87,7 +106,7 @@ export default async function Contacts({
 										{s.icon}
 									</span>{" "}
 									<div className="z-10 flex flex-col items-center">
-										<span className={`whitespace-nowrap text-xl font-medium duration-150 lg:text-3xl text-zinc-200 group-hover:text-white font-display ${emailTransform}`}>
+										<span className={`whitespace-nowrap text-xl font-medium duration-150 lg:text-3xl text-zinc-200 group-hover:text-white font-display`}>
 											{s.handle}
 										</span>
 										<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
@@ -101,5 +120,7 @@ export default async function Contacts({
 				</div>
 			</div>
 		</div>
+		</body>
+      </html>
 	);
 }

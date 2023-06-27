@@ -11,7 +11,7 @@ const nextConfig = {
 			"github.com",
 			"raw.githubusercontent.com",
 		],
-	},
+	}
 };
 
 export default (nextConfig);

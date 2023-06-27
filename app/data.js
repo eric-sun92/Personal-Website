@@ -1,4 +1,4 @@
-import { cache } from 'react';
+// import { cache } from 'react';
 const revalidate = 60;
 const HOURS_12 = 60 * 60 * 12;
 
@@ -13,6 +13,7 @@ export async function getUser(username) {
 
 export async function getRepos(username) {
 	const res = await fetch('https://api.github.com/users/' + username + '/repos', {
+		cache: 'no-store',
 		headers: { Authorization: `Bearer ${process.env.GH_TOKEN}` },
 		next: { revalidate }
 	});
@@ -27,7 +28,7 @@ export async function getSocialAccounts(username) {
 	return res.json();
 }
 
-export const getPinnedRepos = cache(async (username) => {
+export const getPinnedRepos = async (username) => {
 	const res = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
 		headers: { Authorization: `Bearer ${process.env.GH_TOKEN}` },
@@ -36,7 +37,7 @@ export const getPinnedRepos = cache(async (username) => {
 	const pinned = await res.json();
 	const names = pinned.data.user.pinnedItems.nodes.map((node) => node.name);
 	return names;
-});
+};
 
 export const getUserOrganizations = async (username) => {
 	const res = await fetch('https://api.github.com/graphql', {
@@ -67,7 +68,7 @@ export const getVercelProjects = async () => {
 };
 
 /** Cache revalidated every 12 hours. */
-export const getNextjsLatestRelease = cache(async () => {
+export const getNextjsLatestRelease = async () => {
 	const res = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
 		headers: { Authorization: `Bearer ${process.env.GH_TOKEN}` },
@@ -93,9 +94,9 @@ export const getNextjsLatestRelease = cache(async () => {
 		updatedAt: nextjsLatest.data.repository.latestRelease.updatedAt,
 	}
 	return result;
-}, HOURS_12);
+};
 
-export const getRepositoryPackageJson = cache(async (username, reponame) => {
+export const getRepositoryPackageJson = async (username, reponame) => {
 	const res = await fetch('https://api.github.com/graphql', {
 		method: 'POST',
 		headers: { Authorization: `Bearer ${process.env.GH_TOKEN}` },
@@ -119,4 +120,4 @@ export const getRepositoryPackageJson = cache(async (username, reponame) => {
 		console.error('Error parsing package.json', error);
 		return {};
 	}
-}, HOURS_12);
+};

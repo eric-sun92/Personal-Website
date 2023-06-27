@@ -4,7 +4,6 @@ import React from "react";
 import data from "../data.json";
 import { ProfileOrganizations } from "./components/orgs";
 import { getUser } from "./data";
-
 import "../global.css";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
@@ -51,17 +50,15 @@ const calSans = LocalFont({
 
 
 const navigation = [
-	{ name: "Projects", href: "/project_areas" },
-	{ name: "Contact", href: "/contact" },
-	{ name: "Blog", href: "/blog"}
+	{ name: "Projects", href: "../project_areas" },
+	{ name: "Contact", href: "../contact" },
+	{ name: "Blog", href: "../blog"}
 ];
 
 const username =  process.env.GITHUB_USERNAME || data.githubUsername;
 const promise = getUser(username);
 
-export default function Home({
-	searchParams: { customUsername },
-}) {
+export default function Home() {
 
 	return (
 		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
@@ -76,13 +73,12 @@ export default function Home({
 						{navigation.map((item) => (
 							<Link
 								key={item.href}
-								href={item.href + (customUsername ? `?customUsername=${customUsername}` : '')}
+								href={item.href}
 								className="mx-2 text-xl duration-500 text-zinc-500 hover:text-zinc-300"
 							>
 								{item.name}
 							</Link>
 						))}
-						{/* <TryYourself customUsername={customUsername} /> */}
 					</ul>
 				</nav>
 				<div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
