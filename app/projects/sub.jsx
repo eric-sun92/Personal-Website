@@ -10,9 +10,9 @@ export const Sub = ({ repositories }) => {
     const ml_models = ["Kaggle-Titanic", "pytorch_custom_data", "computer_vision_MNIST"]
     const ml_apps = ["is_it_food"]
     const full_stack_apps = ["surveyALP", "OPPO-hackathon"]
-    const custom_APIs = ["Custom_Auth_API", "e-commerce-api", "jobs-api","fileUpload"]
-    const data_structures = []
-    const games = []
+    const custom_APIs = ["Custom_Auth_API", "e-commerce-api", "jobs-api","fileUpload", "RestAPI-implementation", "paginatedAPI", "axios-Implementation "]
+    const data_structures = ["Linked-List-Practice", "HashTablePractice", "Heaps-Practice", "Queue-Priority-Queue", "Trie", "tree-express", "arrayDestructure", "JSLoops-Implementation", "binarySearch "]
+    const games = ["tictactoe", "2048", "calculator-app", "pong-game-project", "sudoku-solver"]
 
     let correct;
     if (area == "ML Models") {
