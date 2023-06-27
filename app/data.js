@@ -12,7 +12,7 @@ export async function getUser(username) {
 }
 
 export async function getRepos(username) {
-	const res = await fetch('https://api.github.com/users/' + username + '/repos', {
+	const res = await fetch('https://api.github.com/users/' + username + '/repos?&per_page=1000', {
 		cache: 'no-store',
 		headers: { Authorization: `Bearer ${process.env.GH_TOKEN}` },
 		next: { revalidate }

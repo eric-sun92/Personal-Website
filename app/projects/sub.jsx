@@ -9,8 +9,8 @@ export const Sub = ({ repositories }) => {
 
     const ml_models = ["Kaggle-Titanic", "pytorch_custom_data", "computer_vision_MNIST"]
     const ml_apps = ["is_it_food"]
-    const full_stack_apps = []
-    const custom_APIs = ["Custom_Auth_API", "e-commerce-api", ]
+    const full_stack_apps = ["surveyALP", "OPPO-hackathon"]
+    const custom_APIs = ["Custom_Auth_API", "e-commerce-api", "jobs-api","fileUpload"]
     const data_structures = []
     const games = []
 
@@ -28,7 +28,6 @@ export const Sub = ({ repositories }) => {
     } else {
         correct = games
     }
-
     // const sorted = repositories
     //     .filter((p) => !p.private)
     //     .filter((p) => !p.fork)
@@ -39,8 +38,10 @@ export const Sub = ({ repositories }) => {
     //             new Date(b.updated_at ?? Number.POSITIVE_INFINITY).getTime() -
     //             new Date(a.updated_at ?? Number.POSITIVE_INFINITY).getTime(),
     //     );
+    console.log(repositories)
             
     const display_repos = repositories.filter((p) => correct.includes(p.name))
+    console.log(display_repos)
 
 	return (
         <div className="grid grid-cols-2 gap-4 mx-auto lg:mx-0">
