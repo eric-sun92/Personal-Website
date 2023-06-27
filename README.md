@@ -1,4 +1,4 @@
-# 🔗 [eric_sun92.vercel.app](https://eric_sun92.vercel.app)
+# 🔗 [ericsun92.vercel.app](https://ericsun92.vercel.app)
 
 My personal portfolio website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and deployed with [Vercel](https://vercel.com/).
 
